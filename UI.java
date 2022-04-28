@@ -22,7 +22,7 @@ public class UI {
         container = new Pane();
         // Add the Canvas to the Pane
 
-        container.getChildren().add(new SearchView());
+        container.getChildren().add(new SearchView(200, 200).getCanvas());
         // Create the Scene
         Scene scene = new Scene(container);
         // Add the Scene to the Stage
@@ -31,6 +31,8 @@ public class UI {
         stage.setTitle("Suncoast Arcade");
         
         stageRef = stage;   
+        
+        EventSystem events = new EventSystem(scene);
     }
 
     public static void Resolution(int width, int height) {

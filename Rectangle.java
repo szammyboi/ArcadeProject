@@ -2,7 +2,7 @@ package ArcadeProject;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Rectangle extends Component {
+public class Rectangle extends Entity {
     private Style style = Style.Filled;
 
     public static enum Style {
@@ -18,13 +18,24 @@ public class Rectangle extends Component {
         this.style = style;
     }
 
-    public void Draw(GraphicsContext canvas) {
+    public void Render(GraphicsContext canvas) {
         if (style == Style.Filled) {
             canvas.fillRect(x, y, w, h);
         } else if (style == Style.Outlined) {
             canvas.strokeRect(x, y, w, h);
         }
         
+    }
+    
+    @Override
+    public void OnMouseMoved(int x, int y) {
+      //System.out.print(x);
+      //System.out.print(", ");
+      //System.out.println(y);
+    }
+    
+    public void OnMouseClicked(int x, int y) {
+      System.out.println("RECTANGLE");
     }
 
 }
