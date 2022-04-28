@@ -1,3 +1,4 @@
+package ArcadeProject;
 import java.util.function.Consumer;
 
 import javafx.scene.Parent;

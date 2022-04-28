@@ -1,3 +1,4 @@
+package ArcadeProject;
 import java.util.ArrayList;
 
 import javafx.scene.canvas.Canvas;
@@ -14,6 +15,7 @@ public abstract class RenderGroup extends Canvas {
         this.width = w;
         this.height = h;
         canvas = this.getGraphicsContext2D();
+        Load();
     }
 
     // maybe it doesn't need to be abstract
@@ -32,6 +34,10 @@ public abstract class RenderGroup extends Canvas {
     public void Position(int x, int y) {
         super.setLayoutX(x);
         super.setLayoutY(y);
+    }
+
+    public void AddComponent(Component c) {
+        components.add(c);
     }
 
     
