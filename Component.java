@@ -16,9 +16,6 @@ public class Component extends Entity {
         canvasRef = new Canvas(w, h);
         gc = canvasRef.getGraphicsContext2D();
         Position(x, y);
-        Load();
-        
-        
 
         //canvas.setOnMouseMoved(e -> mouseMoved(e));
     }
@@ -39,7 +36,7 @@ public class Component extends Entity {
     }
 
     public void Clear() {
-
+        gc.clearRect(0, 0, w, h);
     }
 
     public void Position(int x, int y) {

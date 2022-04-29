@@ -27,15 +27,4 @@ public class Rectangle extends Entity {
         
     }
     
-    @Override
-    public void OnMouseMoved(int x, int y) {
-      //System.out.print(x);
-      //System.out.print(", ");
-      //System.out.println(y);
-    }
-    
-    public void OnMouseClicked(int x, int y) {
-      System.out.println("RECTANGLE");
-    }
-
 }

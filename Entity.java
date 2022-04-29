@@ -14,7 +14,7 @@ public class Entity implements Renderable {
     private static ArrayList<Entity> entities = new ArrayList<Entity>();
     
     public int absoluteX = 0, absoluteY = 0;
-    int x, y, w, h;
+    public int x, y, w, h;
     
     public Entity(int x, int y, int w, int h) {
         this.x = x;
@@ -45,6 +45,14 @@ public class Entity implements Renderable {
    
    public void OnScroll(int deltaY) {
    
+   }
+
+   public void OnMouseDragged(int x, int y) {
+
+   }
+
+   public void OnMouseDown(int x, int y) {
+      
    }
    
    public static ArrayList<Entity> getList() {

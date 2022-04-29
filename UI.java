@@ -32,7 +32,7 @@ public class UI {
         
         stageRef = stage;   
         
-        EventSystem events = new EventSystem(scene);
+        EventSystem.setScene(scene);
     }
 
     public static void Resolution(int width, int height) {
