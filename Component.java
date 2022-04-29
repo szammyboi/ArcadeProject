@@ -1,5 +1,6 @@
 package ArcadeProject;
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -30,9 +31,9 @@ public class Component extends Entity {
     public abstract void OnClick(Component c);
 */
     public void Render() {
-        for (Entity c : entities) {
-            c.Render(gc);
-        }
+            for (Entity c : entities) {
+                c.Render(gc);
+            }
     }
 
     public void Clear() {
@@ -49,6 +50,7 @@ public class Component extends Entity {
     public void AddComponent(Entity c) {
         c.absoluteX = c.x + this.absoluteX;
         c.absoluteY = c.y + this.absoluteY;
+        c.loaded = true;
         entities.add(c);
     }
 

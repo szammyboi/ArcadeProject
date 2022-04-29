@@ -15,7 +15,8 @@ public class Entity implements Renderable {
     
     public int absoluteX = 0, absoluteY = 0;
     public int x, y, w, h;
-    
+    public boolean loaded = false;
+
     public Entity(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;

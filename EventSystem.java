@@ -22,36 +22,41 @@ public class EventSystem {
       mouseY = (int)mouse.getY();
 
       for (Entity e : Entity.getList()) {
-         if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
-            e.OnMouseMoved((int)mouse.getX(), (int)mouse.getY());
+         if (e.loaded)
+            if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
+               e.OnMouseMoved((int)mouse.getX(), (int)mouse.getY());
       }
    }
    
    public static void MouseClicked(MouseEvent mouse) {
       for (Entity e : Entity.getList()) {
-         if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
-            e.OnMouseClicked((int)mouse.getX(), (int)mouse.getY());
+         if (e.loaded)
+            if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
+               e.OnMouseClicked((int)mouse.getX(), (int)mouse.getY());
       }
    }
 
    public static void MouseDown(MouseEvent mouse) {
       for (Entity e : Entity.getList()) {
-         if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
-            e.OnMouseDown((int)mouse.getX(), (int)mouse.getY());
+         if (e.loaded)
+            if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
+               e.OnMouseDown((int)mouse.getX(), (int)mouse.getY());
       }
    }
    
    public static void MouseDragged(MouseEvent mouse) {
       for (Entity e : Entity.getList()) {
-         if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
-            e.OnMouseDragged((int)mouse.getX(), (int)mouse.getY());
+         if (e.loaded)
+            if (e.InBounds((int)mouse.getX(), (int)mouse.getY()))
+               e.OnMouseDragged((int)mouse.getX(), (int)mouse.getY());
       }
    }
 
    public static void MouseScroll(ScrollEvent scroll) { 
       for (Entity e : Entity.getList()) {
-         if (e.InBounds((int)mouseX, (int)mouseY))
-            e.OnScroll((int)scroll.getDeltaY());
+         if (e.loaded)
+            if (e.InBounds((int)mouseX, (int)mouseY))
+               e.OnScroll((int)scroll.getDeltaY());
       }
    }
   

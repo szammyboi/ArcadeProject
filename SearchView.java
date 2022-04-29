@@ -1,21 +1,25 @@
 package ArcadeProject;
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 import javafx.scene.paint.Paint;
 
+
+// function that auto asytncs maybe
 public class SearchView extends Component {
     int dragX, dragY;
     public ArrayList<Img> imgs = new ArrayList<>();
 
     public SearchView(int x, int y) {
         super(x, y, 500, 500);
-        this.Load();
+        
+        CompletableFuture load = CompletableFuture.runAsync(() -> this.Load());
         super.Render();
     }
 
     @Override
     public void Load() {
-        for (int i = 0; i < 52; i++) {
+        for (int i = 0; i < 500; i++) {
             Img test = new Img("images/test.jpg", 0, 0);
             test.Load();
             test.SetScale(w/4, h/3);
@@ -36,6 +40,9 @@ public class SearchView extends Component {
         border.setStyle(Rectangle.Style.Outlined);
         
         AddComponent(border);
+
+        loaded = true;
+        Render();
     }
     
     @Override
