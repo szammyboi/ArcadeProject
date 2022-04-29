@@ -19,22 +19,25 @@ public class SearchView extends Component {
 
     @Override
     public void Load() {
-        for (int i = 0; i < 500; i++) {
-            Img test = new Img("images/test.jpg", 0, 0);
+    
+         int column = 0;
+        for (int i = 0; i < 50; i++) {
+            String link = ArcadeDB.getProductImage(Integer.toString(i));
+            Img test = new Img(link, 0, 0);
             test.Load();
-            test.SetScale(w/4, h/3);
+            test.SetScale(w/4, h/4);
             imgs.add(test);
+            
+            test.x = (i % 4)*(w/4);
+            if (i % 4 == 0 && i != 0) column++;
+            test.y = column*(h/4);
+            
+            test.absoluteX = test.x + this.x;
+            test.absoluteY = test.y + this.y;
+            AddComponent(test);
+            Render();
         }
 
-        int row = 0;
-        int column = 0;
-        for (Img img : imgs) {
-            img.x = (row % 4)*(w/4);
-            if (row % 4 == 0 && row != 0) column++;
-            img.y = column*(h/3);
-            AddComponent(img);
-            row++;
-        }
         
         Rectangle border = new Rectangle(0, 0, w, h);
         border.setStyle(Rectangle.Style.Outlined);
@@ -59,11 +62,14 @@ public class SearchView extends Component {
     @Override
     public void OnMouseDragged(int x, int y) {
         Position(x - dragX, y - dragY);
+        for (Img img : imgs) {
+         img.absoluteX = this.absoluteX + img.x;
+         img.absoluteY = this.absoluteY + img.y;
+        }
     }
 
     @Override
     public void OnScroll(int deltaY) {
-
         Clear();
         for (Img img : imgs) {
             img.y += deltaY;

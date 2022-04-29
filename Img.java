@@ -35,6 +35,6 @@ public class Img extends Entity {
 
     @Override
     public void OnMouseDown(int x, int y) {
-        source = new Image("images/ice.jpg");
+        source = new Image("./images/ice.jpg");
     }
 }
